@@ -26,12 +26,16 @@ COMMANDS_DST = PACKAGE_DIR / "commands"
 MANIFEST_PATH = SKILLS_DST / "manifest.json"
 
 # 脱敏规则（顺序重要：更具体的模式放在前面）
+# 注意：使用当前用户名动态生成，不在代码中硬编码用户名
+_CURRENT_USER = os.environ.get("USER", os.environ.get("USERNAME", ""))
+
 SANITIZE_PATTERNS = [
-    # 绝对路径替换
-    (re.compile(r"/Users/sunminwen/"), "$HOME/"),
+    # 绝对路径替换（当前用户 + 通用兜底）
+    (re.compile(rf"/Users/{re.escape(_CURRENT_USER)}/"), "$HOME/") if _CURRENT_USER else None,
     (re.compile(r"/Users/\w+/"), "$HOME/"),
-    # Claude Code 项目目录命名（~/.claude/projects/-Users-sunminwen/）
-    (re.compile(r"-Users-sunminwen"), "-USERNAME"),
+    # Claude Code 项目目录命名
+    (re.compile(rf"-Users-{re.escape(_CURRENT_USER)}"), "-USERNAME") if _CURRENT_USER else None,
+    (re.compile(r"-Users-\w+"), "-USERNAME"),
     # API Key 模式
     (re.compile(r"(sk-ant-[a-zA-Z0-9_-]{20,})"), "{{ANTHROPIC_API_KEY}}"),
     (re.compile(r"(sk-[a-zA-Z0-9]{30,})"), "{{API_KEY}}"),
@@ -40,6 +44,9 @@ SANITIZE_PATTERNS = [
     (re.compile(r"(eyJ[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,}\.[a-zA-Z0-9_-]{20,})"), "{{JWT_TOKEN}}"),
     # 手机号
     (re.compile(r"1[3-9]\d{9}"), "{{PHONE}}"),
+    # 个人标识（GitHub用户名等）
+    (re.compile(r"\bsmwswk\b"), "{{GITHUB_USERNAME}}"),
+    (re.compile(r"smwswk\.github\.io"), "{{GITHUB_PAGES_DOMAIN}}"),
 ]
 
 # 不分发的技能（在 manifest.excluded_skills 中定义）
@@ -54,6 +61,8 @@ def load_manifest():
 
 def sanitize_content(content):
     for pattern, replacement in SANITIZE_PATTERNS:
+        if pattern is None or replacement is None:
+            continue
         content = pattern.sub(replacement, content)
     return content
 
