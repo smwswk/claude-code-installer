@@ -22,6 +22,7 @@ source "$LIB_DIR/configure_api.sh"
 source "$LIB_DIR/deploy_skills.sh"
 source "$LIB_DIR/deploy_config.sh"
 source "$LIB_DIR/install_plugins.sh"
+source "$LIB_DIR/china_mirror.sh"
 source "$LIB_DIR/verify.sh"
 
 # ── 解析参数 ──────────────────────────────────────────────
@@ -164,8 +165,14 @@ else
 fi
 echo ""
 
-# 8. 验证
+# 8. 国内镜像加速（仅中国大陆用户）
+if $PLATFORM_IS_CHINA; then
+    configure_china_mirrors
+    install_python_if_needed
+fi
+
+# 9. 验证
 verify_installation
 
-# 9. 成功消息
+# 10. 成功消息
 print_success_message
