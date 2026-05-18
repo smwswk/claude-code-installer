@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(git *)",
+      "Bash(curl *)",
+      "Bash(python3 *)",
+      "Bash(mkdir *)",
+      "Bash(npm *)",
+      "Bash(brew *)",
+      "Bash(ffmpeg *)",
+      "Bash(node *)"
+    ]
+  },
+  "hooks": {}
+}

@@ -1,0 +1,259 @@
+{
+  "version": "1.0.0",
+  "generated_by": "小明老师 AI 落地咨询",
+  "description": "技能清单元数据：行业标签、平台兼容性、可移植性、依赖项",
+
+  "excluded_skills": {
+    "小明镜像": "含个人 SOUL.md 写作风格数据",
+    "同事沙盘推演": "含司法局9人职场关系画像",
+    "ct-mcp-copilot": "含个人 CipherTalk MCP 调查数据",
+    "print-pdf": "symlink 到外部目录，不适合分发"
+  },
+
+  "excluded_commands": {
+    "连SMB": "含个人办公服务器地址",
+    "蓝牙音质切换": "与特定机器蓝牙设备绑定"
+  },
+
+  "industries": {
+    "通用": {
+      "label": "通用工具",
+      "always_install": true,
+      "description": "基础效率工具，所有用户都需要",
+      "skills": {
+        "neat-freak": {
+          "source": "neat-freak",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "文档/记忆/CLAUDE.md 三层知识体系同步"
+        },
+        "memory-thin": {
+          "source": "memory-thin",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "CLAUDE.md↔MEMORY.md 管道去重、过期清理、死链检测"
+        },
+        "数字日记": {
+          "source": "数字日记",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "采集浏览记录、Claude协作成果生成数字足迹日记"
+        },
+        "提醒事项处理": {
+          "source": "提醒事项处理",
+          "portability": "needs_config",
+          "platforms": ["macos"],
+          "requires_tools": ["Reminders.app"],
+          "notes": "连接 macOS Reminders.app 批量处理待办。非 macOS 不可用"
+        },
+        "电话听取意见": {
+          "source": "电话听取意见",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "电话内容结构化记录"
+        },
+        "systematic-debugging": {
+          "source": "systematic-debugging",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "系统化调试方法论"
+        },
+        "test-driven-development": {
+          "source": "test-driven-development",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "TDD 循环开发工作流"
+        }
+      }
+    },
+    "法律": {
+      "label": "法律 / 行政复议",
+      "description": "行政复议案件全流程管理",
+      "skills": {
+        "ocr-and-documents": {
+          "source": "ocr-and-documents",
+          "portability": "needs_config",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["tesseract"],
+          "notes": "OCR 识别+文档处理，需要安装 tesseract"
+        },
+        "提交证据目录清单": {
+          "source": "提交证据目录清单",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "生成证据目录清单"
+        },
+        "核对决定书": {
+          "source": "核对决定书",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "核对行政复议决定书"
+        }
+      },
+      "commands": [
+        "案件全流程",
+        "录入案件",
+        "受理处理",
+        "改编号",
+        "网络案全流程",
+        "网络案下载",
+        "网络案办理",
+        "网络案截图",
+        "网络案打印",
+        "物流单打印"
+      ]
+    },
+    "摄影": {
+      "label": "摄影 / 视觉创作",
+      "description": "AI 摄影出图、影调复刻、商业片",
+      "skills": {
+        "当代摄影生图": {
+          "source": "当代摄影生图",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["python3"],
+          "notes": "当代摄影风格 AI 生图"
+        },
+        "哈苏Portra复刻": {
+          "source": "哈苏Portra复刻",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "哈苏+Portra 胶片风格 AI 复刻"
+        },
+        "商业片出图": {
+          "source": "商业片出图",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["python3"],
+          "notes": "商业摄影 AI 出图"
+        },
+        "旅行攻略生成": {
+          "source": "旅行攻略生成",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "旅行摄影攻略+打卡路线生成"
+        },
+        "直达根源": {
+          "source": "直达根源",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "摄影创作深度思考法"
+        }
+      }
+    },
+    "内容": {
+      "label": "内容创作 / 自媒体",
+      "description": "小红书、B站、公众号、小说影像化",
+      "skills": {
+        "小红书发布": {
+          "source": "小红书发布",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "小红书内容发布队列管理"
+        },
+        "小红书总结": {
+          "source": "小红书总结",
+          "portability": "needs_config",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["python3", "ffmpeg"],
+          "notes": "小红书笔记总结+视频ASR转录，需要硅基流动API"
+        },
+        "小说影像化": {
+          "source": "小说影像化",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "文学文本→AI生图→视频化"
+        },
+        "选题拷问": {
+          "source": "选题拷问",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "内容选题方向拷问"
+        },
+        "主页维护": {
+          "source": "主页维护",
+          "portability": "needs_config",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["git", "hugo"],
+          "notes": "GitHub Pages 主页维护，需要 hugo+git"
+        },
+        "B站视频总结": {
+          "source": "B站视频总结",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "B站视频内容总结"
+        },
+        "公众号解析": {
+          "source": "公众号解析",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "微信公众号文章解析"
+        }
+      }
+    },
+    "AI": {
+      "label": "AI 落地 / 创业",
+      "description": "全自动内容摄入、AI日报、播客/视频总结、知乎抓取",
+      "skills": {
+        "全自动总结迭代": {
+          "source": "全自动总结迭代",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "摄入→总结→洞察→记忆→排期全自动链路"
+        },
+        "内容引擎": {
+          "source": "内容引擎",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": [],
+          "notes": "全链路批量摄入加速器"
+        },
+        "AI资讯日报": {
+          "source": "AI资讯日报",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["curl"],
+          "notes": "AI 行业资讯中文日报"
+        },
+        "小宇宙总结": {
+          "source": "小宇宙总结",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["python3"],
+          "notes": "小宇宙播客总结"
+        },
+        "音视频总结": {
+          "source": "音视频总结",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["ffmpeg"],
+          "notes": "通用音视频转录+总结"
+        },
+        "知乎抓取": {
+          "source": "知乎抓取",
+          "portability": "universal",
+          "platforms": ["macos", "linux"],
+          "requires_tools": ["python3"],
+          "notes": "知乎高赞回答批量抓取"
+        }
+      }
+    }
+  }
+}
